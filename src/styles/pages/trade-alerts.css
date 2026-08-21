@@ -1,0 +1,6 @@
+.trade-alerts-page { padding: 2rem }
+.alert-form { display:flex; gap:0.5rem; align-items:center; flex-wrap:wrap }
+.alert-form input, .alert-form select { padding:0.6rem; border-radius:8px; border:1px solid #e6eef8 }
+.alerts-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:0.75rem; margin-top:1rem }
+.alert-card { padding:0.75rem; background:#fff; border:1px solid #eef3fb; border-radius:10px }
+.empty-state { padding:1rem; background:#fff; border:1px solid #eef3fb; border-radius:10px }

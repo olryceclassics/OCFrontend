@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OlryceClassics React Frontend</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+      .olryce-footer{width:100vw;margin-left:calc(50% - 50vw);max-width:none;background:#f4f3ef;color:#222;padding:56px clamp(24px,4vw,48px) 24px;font-family:Arial,Helvetica,sans-serif}
+      .olryce-footer__grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:28px;max-width:1200px;width:100%;margin:0 auto 32px}
+      .olryce-footer h4{margin:0 0 16px;font-size:14px;font-weight:700;text-transform:uppercase;color:#111;letter-spacing:0.12em}
+      .olryce-footer ul{list-style:none;margin:0;padding:0}
+      .olryce-footer li{margin-bottom:12px;color:#5b5b5b;font-size:14px;line-height:1.8}
+      .olryce-footer .brand-title{font-size:24px;font-weight:900;letter-spacing:2px;margin-bottom:14px;color:#111}
+      .olryce-footer .brand-copy{max-width:320px;color:#5c5c5c;line-height:1.8;margin-bottom:18px}
+      .olryce-footer .newsletter p{margin:0;color:#5c5c5c;line-height:1.8}
+      .olryce-footer .newsletter form{display:flex;gap:0;margin-top:14px}
+      .olryce-footer .newsletter input{flex:1;padding:14px 16px;border:1px solid #ccc;border-right:none;border-radius:6px 0 0 6px;background:#fff;color:#111;outline:none}
+      .olryce-footer .newsletter button{padding:14px 18px;border:none;background:#111;color:#fff;font-weight:700;border-radius:0 6px 6px 0;cursor:pointer}
+      .olryce-footer .newsletter-msg{margin-top:12px;font-size:13px;color:#6d6d6d}
+      .olryce-footer .social-icons{display:flex;gap:10px;margin-top:20px}
+      .olryce-footer .social-icons a{width:38px;height:38px;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;background:#111;color:#fff;text-decoration:none;font-size:14px}
+      .olryce-footer .footer-meta{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;border-top:1px solid #ddd;padding-top:26px}
+      .olryce-footer .downloads{display:flex;gap:12px;flex-wrap:wrap}
+      .olryce-footer .download-btn{display:inline-flex;align-items:center;gap:10px;padding:11px 14px;border:1px solid #d4d4d4;border-radius:8px;background:#fff;color:#111;text-decoration:none;font-size:13px;min-width:140px;justify-content:center}
+      .olryce-footer .payments{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin:22px 0 0}
+      .olryce-footer .payments img{height:32px;filter:grayscale(20%);opacity:0.9}
+      .olryce-footer small{color:#7a7a7a;font-size:13px}
+      @media(max-width:960px){.olryce-footer__grid{grid-template-columns:1fr 1fr}}
+      @media(max-width:640px){.olryce-footer__grid{grid-template-columns:1fr}.olryce-footer .newsletter form{flex-direction:column}.olryce-footer .newsletter input,.olryce-footer .newsletter button{width:100%;border-radius:6px}.olryce-footer .newsletter button{margin-top:10px}}
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

@@ -1,0 +1,353 @@
+/* Login Page Styles */
+
+.login-page {
+  min-height: calc(100vh - 200px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background:
+    radial-gradient(circle at top, rgba(64, 131, 255, 0.12), transparent 18%),
+    linear-gradient(135deg, #f6f9ff 0%, #eef6f2 100%);
+}
+
+.login-portal-shell {
+  width: min(1160px, 100%);
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  background: #ffffff;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 22px 58px rgba(15, 23, 42, 0.12);
+}
+
+.login-portal-visual {
+  background:
+    linear-gradient(135deg, rgba(20, 34, 56, 0.96), rgba(31, 90, 73, 0.94)),
+    radial-gradient(circle at top right, rgba(114, 199, 255, 0.18), transparent 18%);
+  color: #f8fbff;
+  padding: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.login-portal-visual::after {
+  content: '';
+  position: absolute;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.08), transparent 68%);
+  pointer-events: none;
+}
+
+.portal-pill {
+  display: inline-flex;
+  align-self: flex-start;
+  background: rgba(255, 255, 255, 0.08);
+  color: #d8e8ff;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.login-portal-visual h1 {
+  margin: 1rem 0 0.8rem;
+  font-size: clamp(2rem, 3vw, 3rem);
+  line-height: 1.1;
+  max-width: 520px;
+}
+
+.login-portal-visual p {
+  margin: 0;
+  max-width: 520px;
+  color: #d8e8ff;
+  line-height: 1.6;
+}
+
+.portal-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.portal-stat-grid div {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 1rem;
+}
+
+.portal-stat-grid strong {
+  display: block;
+  font-size: 1.4rem;
+}
+
+.portal-stat-grid span {
+  font-size: 0.9rem;
+  color: #d8e8ff;
+}
+
+.portal-feature-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.4rem;
+}
+
+.portal-feature-list div {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fffaf5;
+  padding: 0.45rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.login-card {
+  position: relative;
+  background: linear-gradient(180deg, #ffffff 0%, #f9fbff 100%);
+  padding: 3rem 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vendor-auth-page .login-portal-shell {
+  box-shadow: 0 20px 55px rgba(180, 83, 9, 0.14);
+}
+
+.vendor-auth-page .login-portal-visual {
+  background:
+    linear-gradient(135deg, #fff7ed 0%, #ffedd5 52%, #fef3c7 100%),
+    radial-gradient(circle at top right, rgba(251, 146, 60, 0.18), transparent 18%);
+  color: #7c4a12;
+}
+
+.vendor-auth-page .portal-pill {
+  background: #fff7ed;
+  color: #b45309;
+}
+
+.vendor-auth-page .login-portal-visual p {
+  color: #8a5a1d;
+}
+
+.vendor-auth-page .portal-stat-grid div {
+  background: rgba(255, 255, 255, 0.68);
+  border-color: rgba(245, 158, 11, 0.18);
+}
+
+.vendor-auth-page .portal-stat-grid span {
+  color: #8a5a1d;
+}
+
+.vendor-auth-page .portal-feature-list div {
+  background: rgba(255, 255, 255, 0.76);
+  color: #9a5b0a;
+}
+
+.vendor-auth-page .button.button-primary {
+  background: linear-gradient(90deg, #f59e0b, #d97706);
+}
+
+.vendor-auth-page .button.button-primary:hover:not(:disabled) {
+  background: linear-gradient(90deg, #f08c00, #c2410c);
+}
+
+.vendor-auth-page .toggle-mode button {
+  color: #b45309;
+}
+
+.login-card form {
+  width: 100%;
+  max-width: 430px;
+  display: flex;
+  flex-direction: column;
+}
+
+.login-card h2 {
+  font-size: 1.7rem;
+  margin: 0 0 1.5rem;
+  font-weight: 700;
+  text-align: left;
+  color: #122033;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.45rem;
+  font-size: 0.95rem;
+  color: #334155;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 0.95rem 1rem;
+  border: 1px solid #d7deea;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-family: inherit;
+  background: #fff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.9rem;
+}
+
+.form-row .form-group {
+  margin-bottom: 1rem;
+}
+
+.message {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  max-width: 420px;
+  padding: 0.9rem 1rem;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  z-index: 2;
+}
+
+.message.error {
+  background: #fff1f2;
+  color: #be123c;
+  border-left: 4px solid #e11d48;
+}
+
+.message.success {
+  background: #ecfdf5;
+  color: #166534;
+  border-left: 4px solid #16a34a;
+}
+
+.message.info {
+  background: #eff6ff;
+  color: #1d4ed8;
+  border-left: 4px solid #2563eb;
+}
+
+.button {
+  padding: 0.9rem 1rem;
+  border: none;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.button.button-primary {
+  background: linear-gradient(90deg, #2f5d50, #1d2a3a);
+  color: white;
+  width: 100%;
+}
+
+.button.button-primary:hover:not(:disabled) {
+  background: linear-gradient(90deg, #24473d, #152338);
+}
+
+.toggle-mode {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-top: 1rem;
+}
+
+.toggle-mode button {
+  background: none;
+  border: none;
+  color: #2563eb;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 0.9rem;
+  padding: 0;
+}
+
+.toggle-mode button:hover {
+  text-decoration: none;
+}
+
+/* Vendor-specific polish */
+.login-card .vendor-accent {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: #eefbf5;
+  color: #1d5c45;
+  padding: 0.4rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 0.9rem;
+}
+
+.login-card .vendor-subtitle {
+  color: #64748b;
+  margin: 0 0 1rem;
+  line-height: 1.5;
+}
+
+.login-card .vendor-helper {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin-top: -0.2rem;
+  margin-bottom: 0.8rem;
+}
+
+@media (max-width: 920px) {
+  .login-portal-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .login-portal-visual {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .login-page {
+    padding: 1rem;
+  }
+
+  .login-card {
+    padding: 1.5rem;
+  }
+
+  .portal-stat-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}

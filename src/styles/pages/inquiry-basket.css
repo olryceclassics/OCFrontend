@@ -1,0 +1,7 @@
+.inquiry-basket-page { padding: 2rem; }
+.page-header { display:flex; align-items:flex-end; justify-content:space-between; gap:1rem; margin-bottom:1.5rem }
+.add-form { display:flex; gap:0.5rem; align-items:center }
+.add-form input[type="text"]{ padding:0.6rem; border-radius:8px; border:1px solid #e6eef8 }
+.basket-list { margin-top:1rem }
+.basket-item { display:flex; justify-content:space-between; padding:0.75rem 1rem; background:#fff; border:1px solid #eef3fb; border-radius:10px; margin-bottom:0.6rem }
+.empty-state { padding:1.25rem; background:#fff; border:1px solid #eef3fb; border-radius:10px }

@@ -1,0 +1,284 @@
+/* Supplier Profile Styles */
+
+.supplier-profile {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.supplier-header {
+  margin-bottom: 3rem;
+}
+
+.supplier-banner {
+  width: 100%;
+  height: 200px;
+  border-radius: 0;
+  margin-bottom: -60px;
+  background: linear-gradient(135deg, #72c7ff 0%, #ff80c2 100%);
+}
+
+.supplier-info {
+  background: white;
+  margin: 0 2rem;
+  padding: 3rem;
+  border-radius: 12px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 2rem;
+  align-items: start;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.supplier-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #72c7ff, #ff80c2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  color: white;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.supplier-details h1 {
+  margin: 0 0 1rem;
+  font-size: 2rem;
+}
+
+.supplier-highlights {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.trust-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.6rem 1rem;
+  background: #ecfdf5;
+  color: #065f46;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.supplier-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.badge {
+  background: #e8f1ff;
+  color: #2563eb;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.badge-verified {
+  background: #ecfdf5;
+  color: #065f46;
+}
+
+.supplier-description {
+  color: #666;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.supplier-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.supplier-stats div {
+  text-align: center;
+}
+
+.supplier-stats strong {
+  display: block;
+  font-size: 1.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.supplier-stats span {
+  display: block;
+  color: #999;
+  font-size: 0.85rem;
+}
+
+.supplier-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.supplier-details-section {
+  padding: 3rem 2rem;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.detail-card {
+  padding: 2rem;
+  background: #f9f9f9;
+  border-radius: 12px;
+  border-left: 4px solid #72c7ff;
+}
+
+.detail-card h3 {
+  margin: 0 0 0.75rem;
+  color: #333;
+  font-size: 1rem;
+}
+
+.detail-card p {
+  margin: 0;
+  color: #666;
+}
+
+.supplier-products {
+  padding: 3rem 2rem;
+  background: #f5f5f5;
+}
+
+.supplier-products h2 {
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+}
+
+.supplier-products .product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.supplier-products .product-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-decoration: none;
+  color: inherit;
+}
+
+.supplier-products .product-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.supplier-products .product-image {
+  width: 100%;
+  height: 150px;
+}
+
+.supplier-products .product-details {
+  padding: 1rem;
+}
+
+.supplier-products .product-details h3 {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.supplier-products .price {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #000;
+  margin: 0.5rem 0;
+}
+
+.moq {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 0.5rem 0;
+}
+
+.inquiry-section {
+  padding: 3rem 2rem;
+  background: white;
+}
+
+.inquiry-card {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: #f9f9f9;
+  border-radius: 12px;
+}
+
+.inquiry-card h2 {
+  margin-bottom: 2rem;
+}
+
+.inquiry-card .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.inquiry-card label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.inquiry-card input,
+.inquiry-card textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.inquiry-card textarea {
+  resize: vertical;
+}
+
+.success-msg {
+  background: #ecfdf5;
+  color: #065f46;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  border-left: 4px solid #10b981;
+}
+
+@media (max-width: 768px) {
+  .supplier-info {
+    grid-template-columns: 1fr;
+    margin: 0 1rem;
+    padding: 2rem;
+  }
+
+  .supplier-avatar {
+    width: 80px;
+    height: 80px;
+    font-size: 2rem;
+  }
+
+  .supplier-stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .supplier-products .product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}

@@ -1,0 +1,239 @@
+/* RFQ Form Component Styles */
+
+.rfq-container {
+  margin: 1.5rem 0;
+}
+
+.button-outline {
+  background: white;
+  color: #333;
+  border: 2px solid #ddd;
+  padding: 12px 20px;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.button-outline:hover {
+  border-color: #72c7ff;
+  color: #72c7ff;
+  background: #f0f8ff;
+}
+
+.rfq-form-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.rfq-form-modal {
+  background: white;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.rfq-form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+  background: white;
+}
+
+.rfq-form-header h3 {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #999;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-btn:hover {
+  color: #333;
+}
+
+.rfq-form-modal form {
+  padding: 2rem;
+}
+
+.rfq-product-name {
+  background: #f9f9f9;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+  color: #666;
+  margin: 0 0 1.5rem;
+}
+
+.rfq-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.rfq-form-grid .form-group {
+  grid-column: span 1;
+}
+
+.rfq-form-modal .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.rfq-form-modal label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.rfq-form-modal input,
+.rfq-form-modal select,
+.rfq-form-modal textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.rfq-form-modal input:focus,
+.rfq-form-modal select:focus,
+.rfq-form-modal textarea:focus {
+  outline: none;
+  border-color: #72c7ff;
+  box-shadow: 0 0 0 3px rgba(114, 199, 255, 0.1);
+}
+
+.rfq-form-modal textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.rfq-info {
+  background: #eff6ff;
+  border-left: 4px solid #72c7ff;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  color: #1d4ed8;
+}
+
+.rfq-info p {
+  margin: 0;
+}
+
+.rfq-info strong {
+  font-weight: 600;
+}
+
+.rfq-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.rfq-actions button {
+  flex: 1;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+}
+
+.rfq-actions .button-secondary {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.rfq-actions .button-secondary:hover {
+  background: #e0e0e0;
+}
+
+.rfq-actions .button-primary {
+  background: linear-gradient(135deg, #72c7ff, #62b6ff);
+  color: white;
+}
+
+.rfq-actions .button-primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(114, 199, 255, 0.4);
+}
+
+.rfq-actions .button-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.success-msg {
+  background: #ecfdf5;
+  color: #065f46;
+  padding: 1rem;
+  border-radius: 6px;
+  border-left: 4px solid #10b981;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .rfq-form-overlay {
+    padding: 0;
+  }
+
+  .rfq-form-modal {
+    max-height: 100vh;
+    border-radius: 0;
+  }
+
+  .rfq-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rfq-form-header {
+    padding: 1rem;
+  }
+
+  .rfq-form-modal form {
+    padding: 1.5rem;
+  }
+
+  .rfq-actions {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .rfq-actions button {
+    width: 100%;
+  }
+}
