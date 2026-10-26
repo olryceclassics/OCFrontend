@@ -17,6 +17,7 @@ export default function LoginPage({
   const [mode, setMode] = useState(isVendorFlow ? 'vendor-login' : 'login')
   const [form, setForm] = useState({
     email: '',
+    phoneNumber: '',
     password: '',
     firstName: '',
     lastName: '',
@@ -117,6 +118,7 @@ export default function LoginPage({
     try {
       const result = await onRegister({
         email: form.email,
+        phone_number: form.phoneNumber,
         password: form.password,
         first_name: form.firstName,
         last_name: form.lastName,
@@ -124,7 +126,10 @@ export default function LoginPage({
       })
       setVerification({ verificationId: result.verification_id, code: '' })
       setMode('verify')
-      setMessage({ type: 'info', text: 'Verification code sent to your ' + form.channel })
+      setMessage({
+        type: 'info',
+        text: `Verification code sent to your ${form.channel === 'sms' ? 'phone' : 'email'}.`,
+      })
     } catch (err) {
       setMessage({ type: 'error', text: err.message })
     } finally {
@@ -351,6 +356,19 @@ export default function LoginPage({
                   required
                 />
               </div>
+              {form.channel === 'sms' && (
+                <div className="form-group">
+                  <label>Phone number (include country code)</label>
+                  <input
+                    type="tel"
+                    autoComplete="tel"
+                    value={form.phoneNumber}
+                    onChange={(e) => handleChange('phoneNumber', e.target.value)}
+                    placeholder="+254..."
+                    required
+                  />
+                </div>
+              )}
               <div className="form-group">
                 <label>Password</label>
                 <input
