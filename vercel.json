@@ -7,5 +7,15 @@
       "config": { "distDir": "build" }
     }
   ],
-  "outputDirectory": "build"
+  "outputDirectory": "build",
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://ocbackend.onrender.com/api/:path*"
+    },
+    {
+      "source": "/:path*",
+      "destination": "/index.html"
+    }
+  ]
 }
