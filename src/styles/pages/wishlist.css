@@ -1,7 +1,7 @@
 /* Wishlist Page Styles */
 
 .wishlist-page {
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 2rem;
 }
@@ -23,9 +23,10 @@
 
 .wishlist-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
   gap: 1.5rem;
   margin-bottom: 3rem;
+  min-width: 0;
 }
 
 .wishlist-item {
@@ -34,6 +35,7 @@
   overflow: hidden;
   transition: transform 0.2s, box-shadow 0.2s;
   border: 1px solid #eee;
+  min-width: 0;
 }
 
 .wishlist-item:hover {
@@ -156,7 +158,7 @@
   }
 
   .wishlist-grid {
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
     gap: 1rem;
   }
 }

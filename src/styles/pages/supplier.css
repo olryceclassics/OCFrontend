@@ -1,7 +1,7 @@
 /* Supplier Profile Styles */
 
 .supplier-profile {
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 0;
 }
@@ -129,9 +129,10 @@
 
 .details-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
   gap: 2rem;
   margin-bottom: 3rem;
+  min-width: 0;
 }
 
 .detail-card {
@@ -164,8 +165,9 @@
 
 .supplier-products .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
   gap: 1rem;
+  min-width: 0;
 }
 
 .supplier-products .product-card {
@@ -279,6 +281,6 @@
   }
 
   .supplier-products .product-grid {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
   }
 }

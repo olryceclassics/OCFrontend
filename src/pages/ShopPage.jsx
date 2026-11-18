@@ -45,6 +45,7 @@ export default function ShopPage({ onAddToCart }) {
   const [activeCarouselIndex, setActiveCarouselIndex] = useState(0)
   const [loading, setLoading] = useState(true)
   const categoryRowRef = useRef(null)
+  const [expandedMobileCategoryId, setExpandedMobileCategoryId] = useState(null)
   const [filters, setFilters] = useState({
     search: searchParams.get('search') || '',
     category: searchParams.get('category') || '',
@@ -209,6 +210,11 @@ export default function ShopPage({ onAddToCart }) {
     navigate(`/shop?category=${encodeURIComponent(categoryValue)}`)
   }
 
+  const handleMobileCategoryClick = (category) => {
+    setExpandedMobileCategoryId(category.children?.length ? category.id : null)
+    handleCategoryChip(category.slug || category.name)
+  }
+
   const handleRandomCategory = (categoryValue) => {
     const nextFilters = { ...filters, category: categoryValue, randomCategory: true }
     setFilters(nextFilters)
@@ -339,16 +345,55 @@ export default function ShopPage({ onAddToCart }) {
       </div>
 
       <div className="category-chip-row">
-        {rootCategories.slice(0, 6).map((cat) => (
-          <button
-            key={cat.id}
-            type="button"
-            className={`pill ${filters.category === cat.slug || filters.category === cat.name ? 'pill-active' : ''}`}
-            onClick={() => handleCategoryChip(cat.slug || cat.name)}
-          >
-            {localize(cat.name)}
-          </button>
-        ))}
+        {rootCategories.slice(0, 6).map((cat) => {
+          const hasChildren = Boolean(cat.children?.length)
+          const isExpanded = expandedMobileCategoryId === cat.id && hasChildren
+
+          return (
+            <div key={cat.id} className="category-chip-group">
+              <button
+                type="button"
+                className={`pill ${filters.category === cat.slug || filters.category === cat.name || isExpanded ? 'pill-active' : ''}`}
+                onClick={() => handleMobileCategoryClick(cat)}
+                aria-expanded={hasChildren ? isExpanded : undefined}
+                aria-controls={hasChildren ? `category-subcategories-${cat.id}` : undefined}
+              >
+                {localize(cat.name)}
+                {hasChildren && <span className="mobile-category-chevron" aria-hidden="true">⌄</span>}
+              </button>
+              {isExpanded && (
+                <div
+                  id={`category-subcategories-${cat.id}`}
+                  className="category-subcategory-dropdown"
+                  role="group"
+                  aria-label={`${localize(cat.name)} ${t('shop.subcategoriesLabel', 'Subcategories')}`}
+                >
+                  {cat.children.map((subCategory) => (
+                    <div key={subCategory.id} className="category-subcategory-item">
+                      <button
+                        type="button"
+                        className={`category-subcategory-option ${filters.category === subCategory.slug || filters.category === subCategory.name ? 'category-subcategory-option-active' : ''}`}
+                        onClick={() => handleCategoryChip(subCategory.slug || subCategory.name)}
+                      >
+                        {localize(subCategory.name)}
+                      </button>
+                      {(subCategory.children || []).map((nestedCategory) => (
+                        <button
+                          key={nestedCategory.id}
+                          type="button"
+                          className={`category-subcategory-option category-subcategory-option-nested ${filters.category === nestedCategory.slug || filters.category === nestedCategory.name ? 'category-subcategory-option-active' : ''}`}
+                          onClick={() => handleCategoryChip(nestedCategory.slug || nestedCategory.name)}
+                        >
+                          {localize(nestedCategory.name)}
+                        </button>
+                      ))}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          )
+        })}
       </div>
 
       <div className="shop-category-showcase">

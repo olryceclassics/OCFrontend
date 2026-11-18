@@ -508,6 +508,8 @@ function AppContentShell({
   topCategories,
 }) {
   const { t } = useTranslation()
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [mobileCategoriesOpen, setMobileCategoriesOpen] = useState(false)
 
   return (
     <>
@@ -516,6 +518,16 @@ function AppContentShell({
         <div className="brand">
           <Link to="/">OlryceClassics</Link>
         </div>
+        <button
+          type="button"
+          className="mobile-menu-toggle"
+          aria-expanded={mobileMenuOpen}
+          aria-controls="primary-navigation"
+          onClick={() => setMobileMenuOpen((isOpen) => !isOpen)}
+        >
+          <span className="menu-toggle-icon" aria-hidden="true" />
+          {mobileMenuOpen ? t('nav.closeMenu', 'Close') : t('nav.menu', 'Menu')}
+        </button>
         <form className="topbar-search" onSubmit={handleSearchSubmit}>
           <input
             type="search"
@@ -526,7 +538,12 @@ function AppContentShell({
           />
           <button className="button button-primary" type="submit">{t('nav.search', 'Search')}</button>
         </form>
-        <nav className="nav-links">
+        <div className={`topbar-menu${mobileMenuOpen ? ' is-open' : ''}`}>
+        <nav id="primary-navigation" className="nav-links" onClick={(event) => {
+          if (event.target.closest('a')) {
+            setMobileMenuOpen(false)
+          }
+        }}>
           <Link to="/">{t('nav.home', 'Home')}</Link>
           <Link to="/shop">{t('nav.shop', 'Shop')}</Link>
           <Link to="/suppliers">{t('nav.suppliers', 'Suppliers')}</Link>
@@ -591,19 +608,34 @@ function AppContentShell({
             </>
           )}
         </div>
+        </div>
       </div>
-      <div className="topbar-tags">
-        <span className="topbar-tags-label">{t('nav.sourcingCategories', 'Sourcing categories')}</span>
+      <div className={`topbar-tags${mobileCategoriesOpen ? ' is-open' : ''}`}>
+        <button
+          type="button"
+          className="topbar-tags-toggle"
+          aria-expanded={mobileCategoriesOpen}
+          aria-controls="sourcing-categories"
+          onClick={() => setMobileCategoriesOpen((isOpen) => !isOpen)}
+        >
+          <span className="topbar-tags-label">{t('nav.sourcingCategories', 'Sourcing categories')}</span>
+          <span className="category-toggle-indicator" aria-hidden="true" />
+        </button>
+        <div id="sourcing-categories" className="topbar-tag-list">
         {topCategories.map((item) => (
           <button
             key={item.id}
             type="button"
             className="pill"
-            onClick={() => navigate(`/shop?category=${encodeURIComponent(item.slug || item.name)}`)}
+            onClick={() => {
+              setMobileCategoriesOpen(false)
+              navigate(`/shop?category=${encodeURIComponent(item.slug || item.name)}`)
+            }}
           >
             {t(item.name, item.name)}
           </button>
         ))}
+        </div>
       </div>
 
       <Routes>

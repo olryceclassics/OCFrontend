@@ -250,16 +250,62 @@ export default function HomePage() {
             </div>
             <div className="category-list">
               {rootCategories.slice(0, 8).map((item, index) => (
-                <button
-                  key={item.id}
-                  type="button"
-                  className={`category-list-item ${index === activeCategoryIndex ? 'active' : ''}`}
-                  onClick={() => setActiveCategoryIndex(index)}
-                >
-                  <span className="category-icon">{categoryIcons[item.name] || '▸'}</span>
-                  <span>{localize(item.name)}</span>
-                  <span className="category-arrow">›</span>
-                </button>
+                <div key={item.id} className="category-list-entry">
+                  <button
+                    type="button"
+                    className={`category-list-item ${index === activeCategoryIndex ? 'active' : ''}`}
+                    onClick={() => setActiveCategoryIndex(index)}
+                    aria-expanded={index === activeCategoryIndex}
+                    aria-controls={`mobile-subcategories-${item.id}`}
+                  >
+                    <span className="category-icon">{categoryIcons[item.name] || '▸'}</span>
+                    <span>{localize(item.name)}</span>
+                    <span className="category-arrow">›</span>
+                  </button>
+                  {index === activeCategoryIndex && (
+                    <div id={`mobile-subcategories-${item.id}`} className="category-inline-subcategories">
+                      <div className="category-cards-header">
+                        <div>
+                          <strong>{localize(item.name)}</strong>
+                          <p>{t('home.exploreSubcategories', 'Explore {{category}} subcategories', { category: localize(item.name) })}</p>
+                        </div>
+                        <Link to={`/shop?category=${encodeURIComponent(item.slug || item.name)}`} className="button button-secondary">
+                          {t('home.browseCategory', 'Browse {{category}}', { category: localize(item.name) })}
+                        </Link>
+                      </div>
+                      {(item.children || []).length > 0 ? (
+                        <div className="subcategory-grid">
+                          {item.children.map((sub) => (
+                            <Link
+                              key={sub.id}
+                              to={`/shop?category=${encodeURIComponent(sub.slug || sub.name)}`}
+                              className="subcategory-card compact"
+                            >
+                              <div
+                                className="subcategory-thumb"
+                                style={{
+                                  backgroundImage: sub.icon_url
+                                    ? `url(${sub.icon_url})`
+                                    : 'linear-gradient(135deg, #e2e8f5, #f8fafc)',
+                                }}
+                              >
+                                {!sub.icon_url && <span>{sub.name?.charAt(0)}</span>}
+                              </div>
+                              <div className="subcategory-copy">
+                                <strong>{localize(sub.name)}</strong>
+                                <p>{sub.description || t('home.subcategoryBrowse', 'Browse {{subcategory}}.', { subcategory: localize(sub.name).toLowerCase() })}</p>
+                              </div>
+                            </Link>
+                          ))}
+                        </div>
+                      ) : (
+                        <div className="subcategory-empty">
+                          <p>{t('home.noSubcategories', 'No subcategories are available for this category yet.')}</p>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
               ))}
             </div>
           </div>
